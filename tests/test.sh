@@ -17,3 +17,4 @@ grep -q 'sidebar' Home.html
 
 echo "All tests passed."
 grep -q 'Task' Home.html
+grep -q '<form' Update.html
