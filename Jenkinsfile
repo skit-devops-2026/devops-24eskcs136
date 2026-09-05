@@ -2,17 +2,18 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-  stage('Hygiene Check') {
-    steps {
-        bat 'set "PATH=C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\mingw64\\bin;%PATH%" && "C:\\Program Files\\Git\\usr\\bin\\bash.exe" scripts/hygiene.sh'
-    }
-}
+        stage('Hygiene Check') {
+            steps {
+                bat 'set "PATH=C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\mingw64\\bin;%PATH%" && "C:\\Program Files\\Git\\usr\\bin\\bash.exe" scripts/hygiene.sh'
+            }
+        }
 
         stage('Install') {
             steps {
@@ -22,8 +23,18 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat 'if not exist tests\\test_project.sh exit /b 1'
                 bat 'if not exist Index.html exit /b 1'
+                bat 'if not exist Home.html exit /b 1'
+                bat 'if not exist Contact.html exit /b 1'
+                bat 'if not exist About_Us.html exit /b 1'
+                bat 'if not exist Help_Centre.html exit /b 1'
+                bat 'if not exist Search.html exit /b 1'
+                bat 'if not exist Privacy_Policy.html exit /b 1'
+
+                bat 'if not exist Style\\Index.css exit /b 1'
+                bat 'if not exist Style\\Home.css exit /b 1'
+                bat 'if not exist Style\\Contact.css exit /b 1'
+
                 bat 'echo All tests passed!'
             }
         }
@@ -39,6 +50,7 @@ pipeline {
         success {
             echo 'Jenkins pipeline completed successfully.'
         }
+
         failure {
             echo 'Jenkins pipeline failed.'
         }
