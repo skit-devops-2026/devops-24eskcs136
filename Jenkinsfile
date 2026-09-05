@@ -8,11 +8,11 @@ pipeline {
             }
         }
 
-        stage('Hygiene Check') {
-            steps {
-                bat 'bash scripts/hygiene.sh'
-            }
-        }
+       stage('Hygiene Check') {
+    steps {
+        bat '"C:\\Program Files\\Git\\usr\\bin\\bash.exe" scripts/hygiene.sh'
+    }
+}
 
         stage('Install') {
             steps {
