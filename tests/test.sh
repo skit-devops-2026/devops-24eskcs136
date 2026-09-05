@@ -16,3 +16,4 @@ grep -q 'toggle-btn' Home.html
 grep -q 'sidebar' Home.html
 
 echo "All tests passed."
+grep -q "THIS_SHOULD_NOT_EXIST" Home.html
