@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All Tasks - Organizr</title>
+
+    <link rel="stylesheet" href="Style/Search.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Toggle Button -->
+    <button id="toggle-btn" aria-label="Toggle sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="hide">
+
+        <div class="offcanvas-body">
+
+            <h1 class="text-xs">
+                <i class="fa-solid fa-layer-group"></i>
+                Organizr
+            </h1>
+
+            <nav>
+
+                <a class="iconsonbar button text-muted" href="Home.html">
+                    <i class="con fas fa-home p-2"></i>
+                    Home
+                </a>
+
+                <a class="iconsonbar button text-muted" href="Search.html">
+                    <i class="con fas fa-search p-2"></i>
+                    Search
+                </a>
+
+                <a class="iconsonbar button text-muted" href="Home.html">
+                    <i class="con fas fa-plus p-2"></i>
+                    Add Task
+                </a>
+
+                <hr>
+
+                <p class="fw-semibold mtdd">My Tasks</p>
+
+                <a class="text-start iconsonbar2" href="All_Tasks.html">
+                    <i class="fas fa-check icon-gap"></i>
+                    All Tasks
+                </a>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+
+    <!-- Main Content -->
+    <div id="main-content">
+
+        <!-- Header -->
+        <header>
+
+            <div class="logo">
+                <i class="fa-solid fa-layer-group"></i>
+                Organizr
+            </div>
+
+
+            <!-- Search Form -->
+            <div class="header-search-form">
+
+                <form id="header-search-form">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search for tasks..."
+                    >
+
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </header>
+
+
+        <!-- Main -->
+        <main>
+
+            <div class="task-panel">
+
+                <h2 id="heading">
+                    All Tasks
+                </h2>
+
+
+                <!-- Tasks -->
+                <ul class="task-list" id="taskList">
+
+                    <li class="task-item">
+
+                        <h3>Complete DSA Assignment</h3>
+
+                        <p>
+                            Complete the linked list and array problems.
+                        </p>
+
+                        <small>
+                            Due: 2026-08-25
+                        </small>
+
+                    </li>
+
+
+                    <li class="task-item">
+
+                        <h3>Prepare DBMS Notes</h3>
+
+                        <p>
+                            Revise normalization, transactions and SQL queries.
+                        </p>
+
+                        <small>
+                            Due: 2026-08-27
+                        </small>
+
+                    </li>
+
+
+                    <li class="task-item">
+
+                        <h3>Full Stack Project</h3>
+
+                        <p>
+                            Complete the task management system project.
+                        </p>
+
+                        <small>
+                            Due: 2026-08-30
+                        </small>
+
+                    </li>
+
+
+                    <li class="task-item">
+
+                        <h3>ML Project</h3>
+
+                        <p>
+                            Work on the machine learning project and prepare the presentation.
+                        </p>
+
+                        <small>
+                            Due: 2026-09-02
+                        </small>
+
+                    </li>
+
+                </ul>
+
+
+                <!-- No Results Message -->
+                <p id="noResults" style="display: none;">
+                    No tasks found matching your search query.
+                </p>
+
+            </div>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="tm-footer">
+
+            <div class="tm-footer-main">
+
+                <div class="tm-logo">
+                    <i class="fa-solid fa-layer-group"></i>
+                    Organizr
+                </div>
+
+
+                <div class="tm-col">
+
+                    <a href="Home.html">
+                        <h4>Home</h4>
+                    </a>
+
+                    <br>
+
+                    <a href="About_Us.html">
+                        About us
+                    </a>
+
+                    <br>
+
+                    <a href="Blog.html">
+                        Blog
+                    </a>
+
+                    <br>
+
+                    <a href="Careers.html">
+                        Careers
+                    </a>
+
+                    <br>
+
+                </div>
+
+
+                <div class="tm-col">
+
+                    <h4>Support</h4>
+
+                    <br>
+
+                    <a href="Contact.html">
+                        Contact
+                    </a>
+
+                    <br>
+
+                    <a href="Help_Centre.html">
+                        Help Center
+                    </a>
+
+                    <br>
+
+                    <a href="Privacy_Policy.html">
+                        Privacy Policy
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="tm-footer-bottom">
+
+                <p>
+                    &copy; 2025 Organizr. All rights reserved.
+                </p>
+
+
+                <div class="tm-social">
+
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <!-- Sidebar JavaScript -->
+    <script src="Script/sidebar.js"></script>
+
+
+    <!-- Search JavaScript -->
+    <script>
+
+        const searchForm = document.getElementById("header-search-form");
+        const searchInput = document.getElementById("searchInput");
+        const taskList = document.getElementById("taskList");
+        const noResults = document.getElementById("noResults");
+        const heading = document.getElementById("heading");
+
+        searchForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const searchText =
+                searchInput.value.toLowerCase().trim();
+
+            const tasks =
+                document.querySelectorAll(".task-item");
+
+            let found = false;
+
+            tasks.forEach(function (task) {
+
+                const title =
+                    task.querySelector("h3").textContent.toLowerCase();
+
+                const description =
+                    task.querySelector("p").textContent.toLowerCase();
+
+                if (
+                    title.includes(searchText) ||
+                    description.includes(searchText)
+                ) {
+
+                    task.style.display = "block";
+
+                    found = true;
+
+                } else {
+
+                    task.style.display = "none";
+
+                }
+
+            });
+            if (searchText === "") {
+
+                heading.textContent = "All Tasks";
+                noResults.style.display = "none";
+
+                tasks.forEach(function (task) {
+                    task.style.display = "block";
+                });
+
+            } else {
+
+                heading.textContent =
+                    'Search Results for "' + searchText + '"';
+
+                if (!found) {
+                    noResults.style.display = "block";
+                } else {
+                    noResults.style.display = "none";
+                }
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
