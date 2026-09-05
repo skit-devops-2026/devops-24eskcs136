@@ -11,13 +11,13 @@
 .PHONY: install test build run docker-build docker-up
 
 install:
-	@echo "TODO: install dependencies" && exit 1
+	@echo "No external dependencies required for this static HTML project."
 
 test:
-	@echo "TODO: run the test suite" && exit 1
+	bash tests/test.sh
 
 build:
-	@echo "TODO: build the project" && exit 1
+	@echo "Static HTML/CSS/JS project - no build step required."
 
 run:
 	@echo "TODO: start the app locally" && exit 1
