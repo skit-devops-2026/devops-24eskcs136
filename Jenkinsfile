@@ -8,9 +8,9 @@ pipeline {
             }
         }
 
-       stage('Hygiene Check') {
+  stage('Hygiene Check') {
     steps {
-        bat '"C:\\Program Files\\Git\\usr\\bin\\bash.exe" scripts/hygiene.sh'
+        bat 'set "PATH=C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\mingw64\\bin;%PATH%" && "C:\\Program Files\\Git\\usr\\bin\\bash.exe" scripts/hygiene.sh'
     }
 }
 
