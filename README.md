@@ -36,3 +36,7 @@ sheet for why this is required.
 
 This repository is maintained as part of the DevOps assessment.
 The project uses Git and GitHub for version control and collaboration.
+## Project Overview
+
+This project is a Task Management System designed to help users
+create, manage, update and delete tasks efficiently.
