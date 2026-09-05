@@ -1,13 +1,11 @@
 # Organizr
 
-> Replace every angle-bracket placeholder below. The hygiene check in CI will
-> fail until you do.
 
 ## Author
 
 | Roll No. | Name | GitHub username |
 |---|---|---|
-| 24ESKCS128 | Garvita Govind | garvitagovind01 |
+| 24ESKCS136 | Girjakant| girja13 |
 
 ## About
 
@@ -34,3 +32,7 @@ make run
 
 `GET /health` returns the running commit SHA. See `Makefile` and the milestone
 sheet for why this is required.
+## DevOps Setup
+
+This repository is maintained as part of the DevOps assessment.
+The project uses Git and GitHub for version control and collaboration.
