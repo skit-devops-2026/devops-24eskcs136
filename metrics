@@ -1,0 +1,14 @@
+# HELP organizr_uptime_seconds Total application uptime in seconds
+# TYPE organizr_uptime_seconds counter
+organizr_uptime_seconds 3600
+
+# HELP organizr_http_requests_total Total HTTP requests
+# TYPE organizr_http_requests_total counter
+organizr_http_requests_total{path="/",status="200"} 150
+organizr_http_requests_total{path="/health",status="200"} 85
+organizr_http_requests_total{path="/metrics",status="200"} 92
+organizr_http_requests_total{path="/all_tasks",status="200"} 40
+
+# HELP organizr_tasks_count Current total tasks in system
+# TYPE organizr_tasks_count gauge
+organizr_tasks_count 8
