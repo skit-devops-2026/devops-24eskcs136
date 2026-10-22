@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: organizr-deployment
+  labels:
+    app: organizr
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: organizr
+  template:
+    metadata:
+      labels:
+        app: organizr
+    spec:
+      containers:
+        - name: organizr
+          image: ghcr.io/skit-devops-2026/devops-24eskcs136:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              name: http
+          env:
+            - name: DB_HOST
+              value: "organizr-mysql-service"
+            - name: DB_USER
+              value: "root"
+            - name: DB_PASSWORD
+              value: "organizrRoot123"
+            - name: DB_NAME
+              value: "organizr"
+            - name: COMMIT_SHA
+              value: "d975599"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
