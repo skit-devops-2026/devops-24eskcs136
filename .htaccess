@@ -1,0 +1,9 @@
+DirectoryIndex index.php Index.php Home.html Index.html index.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^health/?$ health.php [L,QSA]
+RewriteRule ^metrics/?$ metrics.php [L,QSA]
+</IfModule>

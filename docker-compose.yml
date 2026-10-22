@@ -1,0 +1,59 @@
+services:
+  web:
+    build: .
+    image: ghcr.io/skit-devops-2026/devops-24eskcs136:latest
+    container_name: organizr-web
+    ports:
+      - "8081:80"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: organizrRoot123
+      DB_NAME: organizr
+      COMMIT_SHA: d975599
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - organizr-net
+
+  db:
+    image: mysql:8.0
+    container_name: organizr-db
+    environment:
+      MYSQL_ROOT_PASSWORD: organizrRoot123
+      MYSQL_DATABASE: organizr
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-porganizrRoot123"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+    networks:
+      - organizr-net
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: organizr-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - web
+    restart: unless-stopped
+    networks:
+      - organizr-net
+
+volumes:
+  mysql_data:
+
+networks:
+  organizr-net:
+    driver: bridge
